@@ -21,10 +21,19 @@ apply<JSONSchemaCodegenPlugin>()
 plugins {
   id("org.jetbrains.kotlin.jvm")
   `java-library`
+  `maven-publish`
 }
 
 java {
     withSourcesJar()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
 }
 
 configure<JSONSchemaCodegen> {
