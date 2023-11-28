@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://elusivebot.degrendel.com/chat-message.schema.json",
+    "$id": "https://elusivebot.degrendel.com/messages/chat-message.schema.json",
     "title": "ChatMessage",
     "description": "A product in the catalog",
     "type": "object",
     "properties": {
       "header": {
-        "$ref": "../common/header.schema.json"
+        "$ref": "https://elusivebot.degrendel.com/common/header.schema.json"
       },
       "user": {
         "type": "string"
