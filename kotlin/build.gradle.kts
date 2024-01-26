@@ -14,7 +14,7 @@ repositories {
   mavenCentral()
 }
 
-group = "com.degrendel.elusivebot"
+group = "com.sirnuke.elusivebot"
 
 apply<JSONSchemaCodegenPlugin>()
 
@@ -37,7 +37,7 @@ publishing {
 }
 
 configure<JSONSchemaCodegen> {
-  packageName.set("com.degrendel.elusivebot.schema")
+  packageName.set("com.sirnuke.elusivebot.schema")
   outputDir.set(file("build/generated-sources/kotlin"))
   inputs {
     inputFile(file("../schema"))
