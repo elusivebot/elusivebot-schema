@@ -1,0 +1,8 @@
+{
+  "packageName": "com.sirnuke.elusivebot.schema",
+  "annotations": {
+    "classes": {
+      "kotlinx.serialization.Serializable": ""
+    }
+  }
+}

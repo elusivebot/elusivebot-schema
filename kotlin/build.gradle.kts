@@ -11,7 +11,7 @@ buildscript {
 }
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 group = "com.sirnuke.elusivebot"
@@ -19,9 +19,14 @@ group = "com.sirnuke.elusivebot"
 apply<JSONSchemaCodegenPlugin>()
 
 plugins {
-  id("org.jetbrains.kotlin.jvm")
-  `java-library`
-  `maven-publish`
+    kotlin("jvm") version "1.9.22"
+    kotlin("plugin.serialization") version "1.9.22"
+    `java-library`
+    `maven-publish`
+}
+
+dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 }
 
 java {
@@ -37,11 +42,11 @@ publishing {
 }
 
 configure<JSONSchemaCodegen> {
-  packageName.set("com.sirnuke.elusivebot.schema")
-  outputDir.set(file("build/generated-sources/kotlin"))
-  inputs {
-    inputFile(file("../schema"))
-  }
+    configFile.set(file("json-schema-codegen.config.json"))
+    outputDir.set(file("build/generated-sources/kotlin"))
+    inputs {
+        inputFile(file("../schema"))
+    }
 }
 
 sourceSets.main {
