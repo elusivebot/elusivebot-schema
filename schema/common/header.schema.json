@@ -15,5 +15,5 @@
         "type": "string"
       }
     },
-    "required": [ "serviceId", "serverId" ]
+    "required": [ "serviceId" ]
 }
