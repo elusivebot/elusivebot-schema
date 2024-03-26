@@ -33,11 +33,10 @@ java {
     withSourcesJar()
 }
 
-if (project.hasProperty("internalMavenURL"))
-{
+if (project.hasProperty("internalMavenUrl")) {
     val internalMavenUsername: String by project
     val internalMavenPassword: String by project
-    val internalMavenURL: String by project
+    val internalMavenUrl: String by project
 
     publishing {
         publications {
@@ -51,8 +50,8 @@ if (project.hasProperty("internalMavenURL"))
                     username = internalMavenUsername
                     password = internalMavenPassword
                 }
-                val releasesRepoUrl = "$internalMavenURL/releases/"
-                val snapshotsRepoUrl = "$internalMavenURL/snapshots/"
+                val releasesRepoUrl = "$internalMavenUrl/releases/"
+                val snapshotsRepoUrl = "$internalMavenUrl/snapshots/"
                 url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
                 name = "Internal-Maven-Publish"
             }
@@ -65,7 +64,7 @@ if (project.hasProperty("internalMavenURL"))
                 username = internalMavenUsername
                 password = internalMavenPassword
             }
-            url = uri("$internalMavenURL/releases")
+            url = uri("$internalMavenUrl/releases")
             name = "Internal-Maven-Releases"
         }
     }
@@ -76,7 +75,7 @@ if (project.hasProperty("internalMavenURL"))
                 username = internalMavenUsername
                 password = internalMavenPassword
             }
-            url = uri("$internalMavenURL/snapshots")
+            url = uri("$internalMavenUrl/snapshots")
             name = "Internal-Maven-Snapshots"
         }
     }
