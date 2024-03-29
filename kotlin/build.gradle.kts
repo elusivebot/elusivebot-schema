@@ -31,6 +31,9 @@ dependencies {
 
 java {
     withSourcesJar()
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 if (project.hasProperty("internalMavenUrl")) {

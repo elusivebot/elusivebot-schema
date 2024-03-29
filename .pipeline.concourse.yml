@@ -13,11 +13,11 @@ jobs:
       inputs:
       - name: elusivebot-schema-git
       image_resource:
-        name: eclipse-temurin-18-jdk
+        name: eclipse-temurin-17-jdk
         type: registry-image
         source:
           repository: eclipse-temurin
-          tag: 18-jdk
+          tag: 17-jdk
       run:
         path: bash
         args: 
