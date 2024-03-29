@@ -1,0 +1,45 @@
+jobs:
+- name: elusivebot-schema
+  plan:
+  - get: elusivebot-schema-git
+    trigger: true
+  - task: build-jar
+    config:
+      platform: linux
+      caches:
+      - path: $HOME/.m2/repository
+      - path: $HOME/.gradle/caches/
+      - path: $HOME/.gradle/wrapper/
+      inputs:
+      - name: elusivebot-schema-git
+      image_resource:
+        name: eclipse-temurin-18-jdk
+        type: registry-image
+        source:
+          repository: eclipse-temurin
+          tag: 18-jdk
+      run:
+        path: bash
+        args: 
+        - -c
+        - |
+          set -e
+          mkdir -p $HOME/.gradle
+          touch $HOME/.gradle/gradle.properties
+          chmod 600 $HOME/.gradle/gradle.properties
+          echo "internalMavenUrl=((maven.url))" > $HOME/.gradle/gradle.properties
+          echo "internalMavenUsername=((maven.username))" >> $HOME/.gradle/gradle.properties
+          echo "internalMavenPassword=((maven.password))" >> $HOME/.gradle/gradle.properties
+          set -x
+          cd elusivebot-schema-git 
+          ./gradlew build
+          ./gradlew publishAllPublicationsToInternal-Maven-PublishRepository
+
+resources:
+- name: elusivebot-schema-git
+  type: git
+  source:
+    uri: https://github.com/elusivebot/elusivebot-schema.git
+    icon: github
+    username: ((github.username))
+    password: ((github.password))
