@@ -34,3 +34,6 @@ venv
 # Misc
 .DS_Store
 .*.sw*
+
+# Generated Typescript bindings
+typescript/pkg/src

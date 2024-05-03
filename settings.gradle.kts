@@ -6,5 +6,6 @@ pluginManagement {
   }
 }
 
-include("kotlin")
+include("kotlin", "typescript")
 project(":kotlin").name = "elusivebot-schema"
+project(":typescript").name = "elusivebot-schema-typescript"
