@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://elusivebot.sirnuke.com/common/header.schema.json",
+    "$id": "https://elusivebot.sirnuke.com/schema/header.schema.json",
     "title": "Header",
     "description": "Common header for an event",
     "type": "object",
