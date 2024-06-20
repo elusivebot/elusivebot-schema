@@ -36,7 +36,8 @@ venv
 .*.sw*
 
 # Generated Typescript bindings
-typescript/pkg/src/com
+typescript/pkg/src/msgs
+typescript/pkg/dist
 
 # Node ignores
 node_modules/

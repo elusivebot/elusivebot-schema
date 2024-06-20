@@ -14,7 +14,7 @@ apply<JSONSchemaCodegenPlugin>()
 
 configure<JSONSchemaCodegen> {
     configFile.set(file("json-schema-codegen.config.json"))
-    outputDir.set(file("pkg/src"))
+    outputDir.set(file("pkg/src/msgs"))
     inputs {
         inputFile(file("../schema"))
     }
