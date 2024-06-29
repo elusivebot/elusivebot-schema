@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -ex
+
+./gradlew build
+
+cd typescript/pkg
+
+npm run build
