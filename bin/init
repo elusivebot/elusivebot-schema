@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -ex
+
+if [ "$PWD" != "$1" ]; then
+	# TODO: Might need to switch to Python, but shouldn't be /that/ hard to iterate over the tree and symlink based on some simple rules.  Maybe even parse gitignore (this won't happen).
+	# TODO: Alternatively, go find someone NPM who is appropriate to slap.
+	mkdir -p $1
+	for target in bin gradle kotlin schema build.gradle.kts gradle.properties gradlew settings.gradle.kts; do
+		ln -s $PWD/$target $1/$target
+	done
+	
+	mkdir -p $1/typescript
+	for target in build.gradle.kts json-schema-codegen.config.json; do
+		ln -s $PWD/typescript/$target $1/typescript/$target
+	done
+	
+	mkdir -p $1/typescript/pkg
+	for target in src package.json package-lock.json tsconfig.json tsup.config.ts; do
+		ln -s $PWD/typescript/pkg/$target $1/typescript/pkg/$target
+	done
+	
+	cd $1/typescript/pkg
+	npm install
+	npm link
+else
+	cd typescript/pkg
+	npm install
+	npm link
+fi
