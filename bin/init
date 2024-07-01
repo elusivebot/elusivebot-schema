@@ -7,17 +7,17 @@ if [ "$PWD" != "$1" ]; then
 	# TODO: Alternatively, go find someone NPM who is appropriate to slap.
 	mkdir -p $1
 	for target in bin gradle kotlin schema build.gradle.kts gradle.properties gradlew settings.gradle.kts; do
-		ln -s $PWD/$target $1/$target
+		[ ! -L $1/$target ] && ln -s $PWD/$target $1/$target
 	done
 	
 	mkdir -p $1/typescript
 	for target in build.gradle.kts json-schema-codegen.config.json; do
-		ln -s $PWD/typescript/$target $1/typescript/$target
+		[ ! -L $1/typescript/$target ] && ln -s $PWD/typescript/$target $1/typescript/$target
 	done
 	
 	mkdir -p $1/typescript/pkg
 	for target in src package.json package-lock.json tsconfig.json tsup.config.ts; do
-		ln -s $PWD/typescript/pkg/$target $1/typescript/pkg/$target
+		[ ! -L $1/typescript/pkg/$target ] && ln -s $PWD/typescript/pkg/$target $1/typescript/pkg/$target
 	done
 	
 	cd $1/typescript/pkg
