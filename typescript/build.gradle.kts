@@ -24,3 +24,7 @@ tasks.register<DefaultTask>("build") {
   group = "build"
   dependsOn("generate")
 }
+
+tasks.register<Delete>("clean") {
+    delete("pkg/src/msgs")
+}
