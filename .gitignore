@@ -31,13 +31,14 @@ build
 # Python virtual environment
 venv
 
-# Misc
-.DS_Store
-.*.sw*
-
 # Generated Typescript bindings
 typescript/pkg/src/msgs
 typescript/pkg/dist
 
 # Node ignores
 node_modules/
+
+# Misc
+.DS_Store
+.*.sw*
+._*
