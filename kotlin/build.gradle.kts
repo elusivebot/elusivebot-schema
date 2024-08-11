@@ -19,14 +19,14 @@ group = "com.sirnuke.elusivebot"
 apply<JSONSchemaCodegenPlugin>()
 
 plugins {
-    kotlin("jvm") version "1.9.22"
-    kotlin("plugin.serialization") version "1.9.22"
+    kotlin("jvm") version "2.0.10"
+    kotlin("plugin.serialization") version "2.0.10"
     `java-library`
     `maven-publish`
 }
 
 dependencies {
-    api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
 }
 
 java {
