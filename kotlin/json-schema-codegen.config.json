@@ -4,5 +4,12 @@
     "classes": {
       "kotlinx.serialization.Serializable": ""
     }
+  },
+  "customClasses": {
+    "extension": {
+      "x-local-type": {
+        "KeyValue": "com.sirnuke.elusivebot.schema.KeyValue"
+      }
+    }
   }
 }

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elusivebot.sirnuke.com/schema/message-interpretations.schema.json",
+  "title": "MessageInterpretations",
+  "type": "object",
+  "properties": {
+    "header": {
+      "$ref": "https://elusivebot.sirnuke.com/schema/header.schema.json"
+    },
+    "user": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "interpretations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "x-local-type": "KeyValue"
+          }
+        },
+        "required": [ "id" ]
+      }
+    }
+  },
+  "required": [ "header", "message" ]
+}

@@ -1,3 +1,10 @@
 {
-  "targetLanguage": "typescript"
+  "targetLanguage": "typescript",
+  "customClasses": {
+    "extension": {
+      "x-local-type": {
+        "KeyValue": "KeyValue"
+      }
+    }
+  }
 }

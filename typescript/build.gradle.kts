@@ -12,6 +12,7 @@ buildscript {
 
 apply<JSONSchemaCodegenPlugin>()
 
+// TODO: Make this work better with KeyValue.ts
 configure<JSONSchemaCodegen> {
     configFile.set(file("json-schema-codegen.config.json"))
     outputDir.set(file("pkg/src/msgs"))
